@@ -253,8 +253,10 @@ int32_t smic_bootspi_open(SMIC_BOOTSPI_DEF_PTR obj)
 	SMIC_BOOTSPI_CHECK_EXP(obj != NULL, E_OBJ);
 	SMIC_BOOTSPI_CHECK_EXP(obj->bootspi_open_cnt == 0, E_OPNED);
 	obj->bootspi_open_cnt++;
-	//Sclk 1.17 MHz, Fsystem/64 (low rate)
-	obj->bootspi_reg->MMC = 0x0;
+	// //Sclk 1.17 MHz, Fsystem/64 (low rate)
+	// obj->bootspi_reg->MMC = 0x00;
+	//Sclk 18.75 MHz, Fsystem/16 (high rate)
+	obj->bootspi_reg->MMC = 0x05;
 	//Manual Mode Enable
 	obj->bootspi_reg->MME = 0x01;
 
